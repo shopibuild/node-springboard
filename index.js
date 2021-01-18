@@ -75,7 +75,8 @@ var getCookieFile = function() {
 			throw err;
 			hold = false;
 		} else {
-			COOKIE_FILE = response.headers['set-cookie'][0];
+      console.log('Log headers: ', response.headers);
+			COOKIE_FILE = response.headers['set-cookie'] && response.headers['set-cookie'][0];
 			HEADERS = {'Accept': '*/*', 'User-Agent': 'Restler for node.js', 'Cookie' : COOKIE_FILE};
 			USER_ID = data;
 			hold = false;
